@@ -83,3 +83,77 @@ SHOW GRANTS FOR 'nombre_usuario';
 set global max_user_connections = 30;
 ALTER USER 'nombre_usuario'@'%' WITH MAX_CONNECTIONS_PER_HOUR 20;
 ```
+
+
+# Ejercicios MySQL
+
+```sql
+/* */
+SELECT CITY, LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY), CITY ASC LIMIT 1;
+SELECT CITY, LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY) DESC LIMIT 1;
+/* */
+```
+
+```sql
+/* */
+SELECT DISTINCT CITY FROM STATION WHERE CITY REGEXP "^[a,e,i,o,u].*[a,e,i,o,u]$";
+/* */
+```
+
+```sql
+/* */
+SELECT DISTINCT CITY FROM STATION WHERE CITY REGEXP "^[^aeiou]|[^aeiou]$";
+/* */
+```
+
+```sql
+/* */
+SELECT DISTINCT CITY FROM STATION WHERE CITY REGEXP "^[^aeiou].*[^aeiou]$";
+/* */
+```
+
+```sql
+/* */
+SELECT NAME FROM STUDENTS WHERE MARKS > 75 ORDER BY RIGHT(NAME, 3), ID;
+/* */
+```
+
+```sql
+/* */
+SELECT CASE
+        WHEN A + B > C AND B + C > A AND A + C > B THEN
+            CASE
+                WHEN A = B AND B = C THEN 'Equilateral'
+                WHEN A = B OR B = C OR C = A THEN 'Isosceles'
+                ELSE 'Scalene'
+            END
+        ELSE 'Not A Triangle'
+    END
+FROM TRIANGLES;
+/* */
+```
+
+```sql
+/* */
+SELECT CONCAT(Name, '(', LEFT(Occupation, 1), ')') FROM OCCUPATIONS ORDER BY Name ASC;
+SELECT CONCAT('There are a total of ', COUNT(Occupation), CONCAT(' ', lower(Occupation), 's.')) FROM OCCUPATIONS GROUP BY Occupation ORDER BY COUNT(Occupation) ASC;
+/* */
+```
+
+
+## Pivot - Usar función RANK
+[RANK()](https://www.mysqltutorial.org/mysql-window-functions/)
+
+```sql
+/* */
+SELECT MIN(Doctor), MIN(Professor), MIN(Singer), MIN(Actor) FROM
+(SELECT
+    CASE WHEN Occupation = 'Doctor' THEN Name END AS Doctor,
+    CASE WHEN Occupation = 'Professor' THEN Name END AS Professor,
+    CASE WHEN Occupation = 'Singer' THEN Name END AS Singer,
+    CASE WHEN Occupation = 'Actor' THEN Name END AS Actor,
+    RANK() OVER(PARTITION BY Occupation ORDER BY Name ASC) AS ra
+FROM OCCUPATIONS) as temp
+GROUP BY ra;
+/* */
+```

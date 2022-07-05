@@ -19,16 +19,15 @@
 
 * [Básico](basico)
     * [SELECT](#select)
+    * [NULL, NOT NULL](#valoresnull)
+    * [Funciones NULL](#funcionesnull)
     * [DISTINCT](#distinct)
     * [WHERE](#where)
-    * [AND  OR](#and-or)
+    * [AND OR](#and-or)
     * [IN](#in)
     * [BETWEEN](#between)
     * [LIKE](#like)
     * [ORDER BY](#ordeby)
-    * [Funciones](#funciones)
-        * [AVG](#avg)
-        * [COUNT](#count)
     * [GROUP BY](#groupby)
     * [HAVING](#having)
     * [ALIAS](#alias)
@@ -36,6 +35,7 @@
     * [CONCAT](#concat)
     * [SUBSTR](#substr)
     * [TRIM](#trim)
+    * [LIMIT](#limit)
     * [TABLA](#tablas)
         * [CREATE](#create)
         * [AS](#as)
@@ -61,6 +61,24 @@
     * [Anidadas](#anidadas)
 
 
+* [Funciones](#funciones)
+    * [AVG](#avg)
+    * [COUNT](#count)
+    * [FIRST](#first)
+    * [LAST](#last)
+    * [MAX](#max)
+    * [MIN](#min)
+    * [SUM](#sum)
+    * [UCASE](#ucase)
+    * [LCASE](#lcase)
+    * [MID](#mid)
+    * [LENGTH](#length)
+    * [ROUND](#round)
+    * [FORMAT](#format)
+
+
+
+
 * [Resumen](#resumen)
 
 <br>
@@ -80,6 +98,43 @@ SELECT * FROM nombre_tabla;
 
 SELECT name, age, skills, city FROM date_personal;
 ```
+
+<br>
+
+<a name="valoresnull"></a>
+### NULL, NOT NULL
+
+Representa valores desconocidos. Estos no se pueden operar con operadores aritméticos, solamente se puede usar **IS**, **IS NOT**.
+
+#### Sintáxis
+
+```sql
+SELECT * FROM personas WHERE apellido2 IS NULL;
+
+SELECT name FROM personas WHERE name IS NOT NULL;
+```
+
+<br>
+
+<a name="funcionesnull"></a>
+### Funciones NULL
+
+Si se quiere cambiar un **NULL** por algún valor, se debe usar **IFNULL**, **COALESCE**.
+
+#### Sintáxis
+
+```sql
+SELECT producto, preciounidad * (unidadesstock + IFNULL(unidadespedido, 0) FROM productos 
+```
+
+O usar:
+
+```sql
+SELECT producto, preciounidad * (unidadesstock + COALESCE(unidadespedido, 0) FROM productos 
+```
+
+En esta caso se cambio el valor NULL por 0.
+
 <br>
 
 <a name="distinct"></a>
@@ -195,6 +250,13 @@ Busca un patrón en la consulta realizada.
 SELECT columna_nombre FROM nombre_tabla WHERE columna_nombre LIKE patrón;
 ```
 
+#### Uso de WILDCARDS
+
+%  :  sustituye a cero o más caracteres
+_  :  sustituye a 1 carácter cualquiera
+[lista]  :  sustituye a cualquier carácter de la lista
+[^lista] o [!lista]  :  sustituye a cualquier carácter excepto los caracteres de la lista
+
 Donde, patrón:
     * 'C_A' - todas las coincidencias que comienzan con "C" y terminan con "A", ejemplo: "casa".
     * 'CEB%' - todas las coincidencias que comienzan con "CEB", ejemplo: "cebolla".
@@ -228,40 +290,6 @@ SELECT columna_nombre FROM nombre_tabla WHERE condición ORDER BY columna_nombre
 
 ```sql
 SELECT name, age FROM personal ORDER BY age DESC name ASC;
-```
-
-<br>
-
-<a name="funciones"></a>
-### Funciones
-
-Permite realizar cálculos matemáticos, como, mínimo, máximo, contar, promedio.
-
-* AVG
-* COUNT
-* MAX
-* MIN
-* SUM
-
-### Sintáxis
-
-```sql
-SELECT nombre_función('columna_nombre') FROM nombre_tabla;
-```
-<a name="avg"></a>
-### AVG
-
-```sql
-SELECT AVG(age) FROM personal;
-```
-
-<a name="count"></a>
-### COUNT
-
-```sql
-SELECT COUNT(name) FROM personal;
-
-SELECT COUNT(DISTINCT name) FROM personal;
 ```
 
 <br>
@@ -355,8 +383,6 @@ SELECT columna_nombre FROM nombre_tabla1 FULL JOIN nombre_tabla2 ON nombre_tabla
 Concatenar los resultados de varios campos diferentes.
 
   * MySQL: CONCAT()
-  * Oracle: CONCAT(), ||
-  * SQL SEVER: +
 
 #### Sintáxis
 
@@ -366,17 +392,12 @@ CONCAT (cadena1, cadena2, cadena3, ..)
 
 #### Ejemplo
 
-MySQL/Oracle:
+MySQL:
 
 ```sql
 SELECT CONCAT (region_name, store_name) FROM geography WHERE store_name = 'Boston';
 ```
 
-SQL Server
-
-```sql
-SELECT Region_Name + ' ' + Store_Name FROM Geography WHERE Store_Name = 'Boston';
-```
 
 <br>
 
@@ -409,8 +430,6 @@ SELECT SUBSTR (Store_Name, 2, 4) FROM Geography WHERE Store_Name = 'San Diego';
 Eliminar un prefijo o sufijo determinado de una cadena.
 
 * MySQL: TRIM(), RTRIM(), LTRIM()
-* Oracle: RTRIM(), LTRIM()
-* SQL Server: RTRIM(), LTRIM()
 
 #### Sintáxis
 
@@ -420,6 +439,19 @@ SELECT TRIM(' sample ');
 SELECT LTRIM(' sample ');
 
 SELECT RTRIM(' sample ');
+```
+
+<br>
+
+<a name="limit"></a>
+### LIMIT
+
+Especifica el número de filas a mostrar.
+
+#### Sintáxis
+
+```sql
+SELECT * FROM personas LIMIT 2;
 ```
 
 <br>
@@ -444,14 +476,17 @@ CREATE TABLE nombre_tabla (
 
 datatype:
 
-* CHAR(size)  :  cualquier dato de largo 'size', 0-255.
-* VARCHAR(size)  : variable de largo 'size', 0-65535.
-* TEXT(size)  :  string largo, 65535.
-* INT(size)  :  numero entero negativo o positivo.
-* FLOAT(size)  :  numero punto flotante.
-* DATE  :  YYYY-MM-DD.
-* DATETIME  :  YYYY-MM-DD hh:mm:ss.
-* TIMESTAMP  :  timestamp Unix.
+* CHAR(size)  :  cualquier dato de largo 'size', 0-255
+* VARCHAR(size)  : variable de largo 'size', 0-65535
+* TEXT(size)  :  string largo, 65535
+* INT(size)  :  numero entero negativo o positivo
+* FLOAT(size)  :  numero punto flotante
+* DATE  :  YYYY-MM-DD
+* DATETIME  :  YYYY-MM-DD hh:mm:ss
+* TIMESTAMP  :  timestamp Unix
+* TIME  :  HH:MM:SS
+* YEAR  :  YYYY
+* NOW  :  fecha actual
 
 
 #### Ejemplo
@@ -501,6 +536,9 @@ Las restricciones se deben ingresar cuando se crea una tabla, luego se puede cam
 * CHECK  :  valores de una columna cumplan condiciones.
 * PRIMARY KEY  :  identificar el campo de llave identificador único.
 * FOREIGN KEY  :  valor numérico que apunta a otro campo PRIMARY KEY de otra tabla.
+* DEFAULT  :  establece un valor por defecto en una columna, se puede usar en CREATE TABLE o ALTER TABLE.
+
+* AUTO INCREMENT  :  permite generar un número único cuando insertamos un nuevo registro en la tabla.
 
 #### Sintáxis
 
@@ -535,14 +573,6 @@ CREATE TABLE Customer (
   PRIMARY KEY (SID)
 );
 ```
-Oracle/SQL Server
-```sql
-CREATE TABLE Customer (
-  SID integer PRIMARY KEY,
-  Last_Name varchar(30),
-  First_Name varchar(30)
-);
-```
 
 MySQL
 ```sql
@@ -556,15 +586,6 @@ CREATE TABLE ORDERS (
 );
 ```
 
-Oracle/SQL Server
-```sql
-CREATE TABLE ORDERS (
-  Order_ID integer PRIMARY KEY,
-  Order_Date datetime,
-  Customer_SID integer REFERENCES CUSTOMER (SID),
-  Amount double
-);
-```
 
 <a name="view"></a>
 ### CREATE VIEW
@@ -868,6 +889,196 @@ SELECT SUM(Sales) FROM Store_Information WHERE Store_Name IN (
   SELECT Store_Name FROM Geography WHERE Region_Name = 'West'
 );
 ```
+
+<br>
+
+
+
+<a name="funciones"></a>
+# Funciones
+
+Permite realizar cálculos matemáticos, como, mínimo, máximo, contar, promedio.
+
+* AVG
+* COUNT
+* MAX
+* MIN
+* SUM
+
+### Sintáxis
+
+```sql
+SELECT nombre_función('columna_nombre') FROM nombre_tabla;
+```
+<a name="avg"></a>
+### AVG
+
+```sql
+SELECT AVG(age) FROM personal;
+```
+
+<a name="count"></a>
+### COUNT
+
+```sql
+SELECT COUNT(name) FROM personal;
+
+SELECT COUNT(DISTINCT name) FROM personal;
+```
+
+<br>
+
+<a name="first"></a>
+### FIRST
+
+Devuelve el primer valor de la columna seleccionada.
+
+#### Sintáxis
+
+```sql
+SELECT FIRST(precio) FROM pedidos;
+```
+
+<br>
+
+<a name="last"></a>
+### LAST
+
+Devuelve el último valor de la columna seleccionada.
+
+#### Sintáxis
+
+```sql
+SELECT LAST(precio) FROM pedidos;
+```
+
+<br>
+
+<a name="max"></a>
+### MAX
+
+Retorna el número mayor de la columna seleccionada.
+
+#### Sintáxis
+
+```sql
+SELECT MAX(precio) FROM pedidos;
+```
+
+<br>
+
+<a name="min"></a>
+### MIN
+
+Retorna el número menor de la columna seleccionada.
+
+#### Sintáxis
+
+```sql
+SELECT MIN(precio) FROM pedidos;
+```
+
+<br>
+
+<a name="sum"></a>
+### SUM
+
+Retorna una suma de los valores de la columna seleccionada, deben ser de tipo número.
+
+#### Sintáxis
+
+```sql
+SELECT sum(precio) FROM pedidos;
+```
+
+<br>
+
+<a name="ucase"></a>
+### UCASE
+
+Convierte string en mayúscula, campo tipo string.
+
+#### Sintáxis
+
+```sql
+SELECT UCASE(nombre) FROM pedidos;
+```
+
+<br>
+
+<a name="lcase"></a>
+### LCASE
+
+Convierte string en minuscula, capo tipo string.
+
+#### Sintáxis
+
+```sql
+SELECT LCASE(nombre) FROM pedidos;
+```
+
+<br>
+
+<a name="mid"></a>
+### MID
+
+Extrae carácteres de un campo de texto, es decir, corta el string.
+Recibe tres parámetros: el campo, INT_inicio, INT_final.
+
+#### Sintáxis
+
+```sql
+ SELECT MID(cliente,1,3) FROM pedidos;
+```
+
+<br>
+
+<a name="length"></a>
+### LENGTH
+
+Calcula la longitud del string del campo seleccionado,  tipo texto.
+
+#### Sintáxis
+
+```sql
+SELECT LENGTH(cliente) AS cliente FROM pedidos;
+```
+
+<br>
+
+<a name="round"></a>
+### ROUND
+
+Redondea el valor del campo numérico en decimales especificados.
+Recibe dos parámetros: campo, int_cantidad_decimales.
+
+#### Sintáxis
+
+```sql
+SELECT ROUND(precio,0) AS r_precio FROM pedidos;
+```
+
+<br>
+
+<a name="format"></a>
+### FORMAT
+
+Usado para dar formato en el campo seleccionado.
+Se le entrega dos parámetros: columna, formato.
+
+#### Sintáxis
+
+```sql
+SELECT producto, precio, FORMAT(NOW(), ‘YYYY-MM-DD’) AS fecha FROM productos;
+```
+
+
+
+
+
+
+
+
 
 <br>
 

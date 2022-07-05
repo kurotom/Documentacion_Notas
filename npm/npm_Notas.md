@@ -35,29 +35,31 @@ Se puede solucionar de dos formas:
 
 * Se puede cambiar el límite, como root.
 
-	**Cambios Temporales**
-	
-	Revisar los límites que se tienen.
 
-	```bash
-	$ cat /proc/sys/fs/inotify/max_user_instances
-	$ cat /proc/sys/fs/inotify/max_user_watches
-	```
+**Cambios Temporales**
 	
-	Actualizar los límites, si es necesario.
-	```bash
-	$ sudo sysctl fs.inotify.max_user_instances=8192
-	$ sudo sysctl fs.inotify.max_user_watches=524288
-	$ sudo sysctl -p
-	```
+Revisar los límites que se tienen.
 
-	**Cambios Permanentes**
+```bash
+$ cat /proc/sys/fs/inotify/max_user_instances
+$ cat /proc/sys/fs/inotify/max_user_watches
+```
 	
-	```bash
-	$ echo fs.inotify.max_user_instances=8192 | sudo tee -a /etc/sysctl.conf
-	$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
-	$ sudo sysctl -p
-	```
+Actualizar los límites, si es necesario.
+```bash
+$ sudo sysctl fs.inotify.max_user_instances=8192
+$ sudo sysctl fs.inotify.max_user_watches=524288
+$ sudo sysctl -p
+```
+
+
+**Cambios Permanentes**
+	
+```bash
+$ echo fs.inotify.max_user_instances=8192 | sudo tee -a /etc/sysctl.conf
+$ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+$ sudo sysctl -p
+```
 
 
 * Cambiar a una ruta más corta, como el "home" del usuario, usar nombres para los ficheros que sean cortos y distintivos.

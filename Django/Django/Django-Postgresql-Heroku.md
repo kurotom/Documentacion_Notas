@@ -24,33 +24,32 @@ App Django desplegada en Heroku, este último usa por defecto la base de datos P
 
   Fichero `settings.py` del proyecto base.
 
-  ```
-      import psycopg2-binary
+```
+	import psycopg2
 
-      [...]
+	[...]
 
-      DATABASES = {
-              'default': {
-                  'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                  'NAME': os.getenv("DBname"),
-                  'USER': os.getenv("userDB"),
-                  'PASSWORD': os.getenv("pwdUserDB"),
-                  'HOST': os.getenv("DB_HOST"),
-                  'PORT': os.getenv("DB_PORT"),
-              }
-      }
-  ```
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.postgresql_psycopg2',
+			'NAME': os.getenv("DBname"),
+            'USER': os.getenv("userDB"),
+            'PASSWORD': os.getenv("pwdUserDB"),
+            'HOST': os.getenv("DB_HOST"),
+            'PORT': os.getenv("DB_PORT"),
+		}
+	}
+```
 
 
 ### Generando las configuración de entorno para la base de datos.
 
 
-    export DBname="name_DB"
-    export userDB="username_DB"
-    export pwdUserDB="passwdUser"
-    export DB_HOST="localhost"
-    export DB_PORT="5432"
-
+export DBname="name_DB"
+export userDB="username_DB"
+export pwdUserDB="passwdUser"
+export DB_HOST="localhost"
+export DB_PORT="5432"
 
 
 
@@ -223,7 +222,8 @@ ALTER ROLE usuariodatabase SET timezone TO 'UTC';
 
 Dependiendo de los requisitos se deben aplicar los privilegios necesarios, para fines explicativos se utilizará el siguiente ejemplo:
 
-` GRANT ALL PRIVILEGES ON DATABASE appdatabase TO usuariodatabase;`
+`GRANT ALL PRIVILEGES ON DATABASE appdatabase TO usuariodatabase;`
+
 
 
 ### Salir de la Postgresql y del entorno de usuario "postgres"
