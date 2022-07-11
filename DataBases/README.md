@@ -32,6 +32,7 @@
     * [HAVING](#having)
     * [ALIAS](#alias)
     * [JOIN](#join)
+    * [ON](#on)
     * [CONCAT](#concat)
     * [SUBSTR](#substr)
     * [TRIM](#trim)
@@ -75,6 +76,10 @@
     * [LENGTH](#length)
     * [ROUND](#round)
     * [FORMAT](#format)
+    * [FLOOR](#floor)
+    * [CEIL](#ceil)
+    * [CEILING](#ceiling)
+    * [DIV](#div)
 
 
 
@@ -372,8 +377,20 @@ SELECT columna_nombre FROM nombre_tabla1 FULL JOIN nombre_tabla2 ON nombre_tabla
 
 * INNER JOIN  :  retorna registro que coincidan en ambas tablas.
 * LEFT JOIN  :  retorna registros desde la tabla izquierda y los registros coinciden desde la tabla derecha.
-* RIGTH JOIN  :  retorna los registros desde la tabla derecha, y los registros coincidentes desde la tabla izquierda.
+* RIGHT JOIN  :  retorna los registros desde la tabla derecha, y los registros coincidentes desde la tabla izquierda.
 * FULL JOIN  :  retorna los registros cuando coincidan entre ambas tablas (izquierda y derecha).
+
+<br>
+
+<a name="concat"></a>
+### ON
+
+*ON*, al usar con *JOIN*, para coincidir con las mismas columnas, por ejemplo, ForeignKeys entre tablas.
+
+```sql
+SELECT ForeignTableDemo.Id, ForeignTableDemo.Name, PrimaryTableDemo.Address from ForeignTableDemo JOIN PrimaryTableDemo ON ForeignTableDemo.FK = PrimaryTableDemo.FK;
+```
+
 
 <br>
 
@@ -1072,13 +1089,68 @@ Se le entrega dos parámetros: columna, formato.
 SELECT producto, precio, FORMAT(NOW(), ‘YYYY-MM-DD’) AS fecha FROM productos;
 ```
 
+<br>
+
+<a name="floor"></a>
+### FLOOR
+
+Retorna el valor entero más grande que será igual o menor que el de un número de entrada dado.
+
+#### Sintáxis
+
+```sql
+SELECT FLOOR(numero);
+```
+
+<br>
+
+
+<a name="ceil"></a>
+### CEIL
+
+Retorna el valor entero más pequeño que es mayor o igual que un número.
+
+#### Sintáxis
+
+```sql
+SELECT CEIL(numero);
+```
+
+<br>
+
+<a name="ceiling"></a>
+### CEILING
+
+La función devuelve el valor entero más pequeño que es mayor o igual que un número. Nota: Esta función es igual a la función CEIL().
+
+#### Sintáxis
+
+```sql
+SELECT CEILING(numero);
+```
+
+<br>
+
+<a name="div"></a>
+### DIV
+
+Se utiliza para la división de enteros (x se divide por y). Se devuelve un valor entero.
+
+#### Sintáxis
+
+```sql
+SELECT 8 DIV 3;
+```
+
+<br>
 
 
 
 
 
+<br>
 
-
+---
 
 <br>
 

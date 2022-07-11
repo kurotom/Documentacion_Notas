@@ -114,6 +114,16 @@ Este comando se usa para inicializar un repositorio git.
 Crea una copia del repositorio guardado en Heroku-hosted que contiene todos los ficheros del proyecto.
 
   ` # heroku git:clone -a myapp`
+  
+  
+## Establecer Heroku en un proyecto GIT existente.
+
+Para usar, GitHub y Heroku dentro del mismo repositorio del proyecto.
+Para saber a cual app apuntar, se puede usar **heroku apps** para identificar a quien enviar el código.
+
+` # heroku git:remote -a name_app`
+
+
 
 ## Enviando los cambios realizados al repositorio remoto Heroku
 
