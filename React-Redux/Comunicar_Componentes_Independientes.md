@@ -77,25 +77,15 @@ El componente que recibirá los datos compartidos, se debe declarar en **compone
 * EventBus.js
 ```javascript
 const eventBus = {
-
   on(event, callback) {
-
     document.addEventListener(event, (e) => callback(e.detail));
-
   },
-
   dispatch(event, data) {
-
     document.dispatchEvent(new CustomEvent(event, { detail: data }));
-
   },
-
   remove(event, callback) {
-
     document.removeEventListener(event, callback);
-
   },
-
 };
 
 
@@ -112,20 +102,13 @@ import eventBus from "./EventBus";
 
 
 class Coupon extends Component {
-
   constructor(props) {
-
     super(props);
-
     this.state = {
-
       couponCode: "",
-
     };
-
   }
-
-
+  
   applyCoupon = () => {
     console.log("applying");
     eventBus.dispatch("couponApply", { message: "coupone applied" });
@@ -159,7 +142,6 @@ import eventBus from "./EventBus";
 
 
 class Message extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -167,18 +149,15 @@ class Message extends Component {
     };
   }
 
-
   componentDidMount() {
     eventBus.on("couponApply", (data) =>
       this.setState({ message: data.message })
     );
   }
 
-
   componentWillUnmount() {
     eventBus.remove("couponApply");
   }
-
 
   render() {
     return <div>{this.state.message}</div>;
