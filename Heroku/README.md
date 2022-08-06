@@ -284,6 +284,7 @@ Este comando nos dará acceso a la shell con comandos limitados para manejar fic
 
   ` # heroku run bash`
 
+---
 
 # Administrando Heroku Postgres usando CLI
 
