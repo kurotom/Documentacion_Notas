@@ -283,3 +283,97 @@ Desactiva applicación:
 Este comando nos dará acceso a la shell con comandos limitados para manejar ficheros, aplicar configuración a la aplicación remotamente como variables de entorno.
 
   ` # heroku run bash`
+
+
+# Administrando Heroku Postgres usando CLI
+
+Comandos integrados en Heroku CLI.
+
+**[https://devcenter.heroku.com/categories/heroku-postgres](https://devcenter.heroku.com/categories/heroku-postgres)**
+
+## pg:info
+
+Obtener información de la base de datos.
+
+```bash
+$ heroku pg:info --app MyApplication
+```
+
+## pg:psql
+
+Establece sesión `psql` con base de datos remota.
+
+```bash
+$ heroku pg:psql --app MyApplication
+```
+
+## pg:pull
+
+Obtener información desde base de datos remota a database local.
+
+```bash
+$ heroku pg:pull DATABASE_URL name_database_local --app MyApplication
+```
+
+**Es recomendable que la base de datos no exista, eliminar la base de datos si es necesario.**
+
+## pg:push
+
+Enviar los datos desde database local a database remota Heroku PostgreSQL.
+
+```bash
+$ heroku pg:push name_database_local DATABASE_URL	--app MyApplication
+```
+
+**Es recomendable, que la base de datos esté vacía, resetear la base de datos de ser necesario.**
+
+## pg:reset
+
+Elimina los datos de una base de datos.
+
+```bash
+$ heroku pg:reset DATABASE_URL --app MyApplication
+```
+
+## pg:ps
+
+Obtiene la informacion de vista `pg_stat_activity` en PostgreSQL.
+
+```bash
+$ heroku pg:ps --app MyApplication
+```
+
+## pg:kill
+
+'Mata' proceso de consulta por id.
+
+```bash
+$ heroku pg:kill ID --app MyApplication
+
+$ heroku pg:kill --force ID --app MyApplication
+```
+
+## pg:killall
+
+'Mata' todos los procesos de consulta.
+
+```bash
+$ heroku pg:killall --app MyApplication
+```
+
+## pg:credentials:url
+
+Entrega credenciales de acceso y ubicación de la base de datos.
+
+```bash
+$ heroku pg:credentials:url DATABASE_URL --app MyApplication
+```
+
+## pg:credentials:rotate
+
+Buena práctica de seguridad, rota las credenciales para servicios importantes. Actualiza credenciales para database y configs var en Heroku.
+
+```bash
+$ heroku pg:credentials:rotate DATABASE_URL --app MyApplication
+```
+
