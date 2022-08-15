@@ -36,6 +36,17 @@ Para listar todas las variables.
   # export -p
 ```
 
+Para recargar las variables permanentes recientemente añadidas.
+
+```
+	$ source .bashrc
+```
+
+o
+
+```
+	. .bashrc
+```
 
 ### En Windows
 
