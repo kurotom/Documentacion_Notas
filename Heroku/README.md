@@ -323,7 +323,7 @@ $ heroku pg:pull DATABASE_URL name_database_local --app MyApplication
 Enviar los datos desde database local a database remota Heroku PostgreSQL.
 
 ```bash
-$ heroku pg:push name_database_local DATABASE_URL	--app MyApplication
+$ heroku pg:push name_database_local DATABASE_URL --app MyApplication
 ```
 
 **Es recomendable, que la base de datos esté vacía, resetear la base de datos de ser necesario.**

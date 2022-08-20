@@ -5,8 +5,8 @@ cpupower es un conjunto de utilidades de espacio de usuario diseñadas para ayud
 El archivo de configuración de cpupower se encuentra en `/etc/default/cpupower` (debian) o `/etc/sysconfig/cpupower` (Fedora). Este archivo de configuración es leído por un script bash en `/usr/lib/systemd/scripts/cpupower` que es activado por systemd con `cpupower.service`. Es posible que desee habilitar cpupower.service para que se inicie en el arranque.
 
 ```bash
-  sudo systemctl start cpupower.service
-  sudo systemctl enable cpupower.service
+$ sudo systemctl start cpupower.service
+$ sudo systemctl enable cpupower.service
 ```
 
 ## Instalar paquete kernel-tools
@@ -14,7 +14,7 @@ El archivo de configuración de cpupower se encuentra en `/etc/default/cpupower`
 Fedora 34, ejecutar el comando para instalarlo:
 
 ```bash
-  sudo dnf install kernel-tools
+$ sudo dnf install kernel-tools
 ```
 
 
@@ -37,7 +37,7 @@ Se puede activar mediante la línea de comando, pero es temporal, se restablece 
 Para hacerlo permanente, editamos el fichero.
 
 ```bash
-  cat /etc/sysconfig/cpupower
+$ cat /etc/sysconfig/cpupower
     
     # See 'cpupower help' and cpupower(1) for more info
     CPUPOWER_START_OPTS="frequency-set -g performance frequency-set --max 3.0GHz"
@@ -49,11 +49,11 @@ Donde se limitará hasta 3.0 GHZ todos los núcleos.
 Habilitar, iniciar el servicio.
 
 ```bash
-  sudo systemctl enable cpupower.service
+$ sudo systemctl enable cpupower.service
   
-  sudo systemctl start cpupower.service
+$ sudo systemctl start cpupower.service
   
-  sudo systemctl status cpupower.service
+$ sudo systemctl status cpupower.service
 ```
 
 
@@ -63,7 +63,7 @@ Habilitar, iniciar el servicio.
 Para obtener información de la frecuencia de CPU.
 
 ```bash
-  cpupower --cpu all frequency-info
+$ cpupower --cpu all frequency-info
 ```
 
 Donde: ---cpu all : declara que se consulten todos los núcleos, usando 0-N para cada núcleo.
