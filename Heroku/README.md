@@ -1,3 +1,11 @@
+---
+
+# Heroku deja de ser Gratis
+Free Tier - **ELIMINADO**
+
+---
+
+
 # Comandos Heroku
 
 Los comandos se pueden ejecutar solamente, o por lo menos a mí, estando en el directorio del proyecto de la aplicación que será desplegada en la plataforma Heroku.
