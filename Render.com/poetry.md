@@ -81,7 +81,7 @@ Comandos línea de comando utilizando la interfaz, comando ayuda `$ poetry --hel
 
 #### init
 
-`$ poetry init`: crea un proyecto `pyproject.toml` interactivamente para proveer información básica sobre el paquete.
+`$ poetry init`: crea un proyecto `pyproject.toml` interactivamente para proveer información básica sobre el paquete, en un directorio de projecto existente.
 
 Opciones:
 * --name: nombre de paquete.
