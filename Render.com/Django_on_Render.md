@@ -15,14 +15,50 @@ Render tiene compatibilidad con Python 3.7.
 Pasos:
 
 1. Instalar "poetry".
+
+`$ pip install poetry`
+
+
 2. Crear estructura proyecto.
+
+Nuevo projecto.
+`$ poetry new nombre_proyecto`
+
+Projecto existente, ir al directorio.
+`$ poetry init`
+
+
 3. Establecer versión Python.
+
+`$ poetry env use pythonX.X`
+
+
 4. Agregar dependencias.
+
+`$ poetry add paqueteX`
+
+
 5. Crear proyecto.
+
+`$ poetry run django-admin startproject nombre_proyecto .`
+
+
 6. Crear aplicaciones.
+
+`$ python manage.py nombre_app .`
+
+
 7. Enviar el proyecto al repositorio.
-8. Conectar Render.com al repositorio Github.
-9. Esperar que la construcción termine.
+
+8. Conectar Render.com al repositorio Github desde la web.
+
+9. Agregar fichero `.build.sh`, ejecutable para todos, contiene comandos bash como "python manage.py collectstatic --noinput", migrate, makemigrate, etc.
+
+10. Configurar parámetros del servicio web, agregar en la sección comandos './build.sh', 'gunicorn aplicacion.wsgi'.
+
+11. Agregar variables de entorno, si las tiene.
+
+12. Esperar que la construcción termine.
 
 
 
@@ -57,10 +93,16 @@ services:
 ## Manualmente
 
 1. Crear base de datos [PostgreSQL en Render](https://render.com/docs/databases), utilizar la dirección **internal database URL**.
+
 2. Crear un nuevo **Web Service** apuntando al repositorio (entregando los permisos correspondientes).
+
 3. Seleccionar entorno Python.
+
 4. Agregar fichero `.build.sh`, ejecutable para todos, contiene comandos bash como "python manage.py collectstatic --noinput", migrate, makemigrate, etc.
-5. Comando inicio del servicio: `gunicorn mysite.wsgi:application`.
+
+5. Comando inicio del servicio: `gunicorn mysite.wsgi`.
+
 6. Agregar variables de entorno en Render.com.
+
 7. Desplegar y esperar que termine.
 

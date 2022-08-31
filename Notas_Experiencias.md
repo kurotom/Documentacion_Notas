@@ -9,7 +9,7 @@ Error collectstatic - solución downgrade a Django 4.0.7
 
 ## CORS, Django REST Framework (API), REACT.
 
-Desde distintos servicios (heroku, vercel) los métodos GET los tuve que hacer sin escribir headers en las peticiones.
+Desde distintos servicios (heroku, render, vercel) los métodos GET los tuve que hacer sin escribir headers en las peticiones.
 
 Métodos POST, obviamente que sí, para enviar los token de autenticación.
 

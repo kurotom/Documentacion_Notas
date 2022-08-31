@@ -44,12 +44,6 @@ Con funciones hash.
 
 
 
-# Heroku SSL
-
-Soporta protocolos:
-* TLS 1.2
-* TLS 1.3
-
 ## Tipo de ficheros SSL soportados
 
 * `.csr`: fichero [Certificate Signing Request](https://en.wikipedia.org/wiki/Certificate_signing_request), es un certificado para firmar peticiones, es un mensaje enviado desde una aplicacińo a una authoridad certificada de infraestructura de llave pública para aplicar por un certificado de indentidad digital.
