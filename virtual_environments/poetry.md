@@ -184,6 +184,8 @@ Permite tener control explícito sobre el entorno, usando el comando `env use` p
 $ poetry env use python3.7
 ```
 
+Si da error, se tiene que editar fichero *pyproject.toml*.
+
 
 #### Mostrar informacion
 
