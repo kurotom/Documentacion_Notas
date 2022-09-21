@@ -120,3 +120,10 @@ function showPosition(position) {
 
 </script>
 ```
+
+
+
+# Fuentes
+
+* [Geolocation - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
+* [geolocation - w3schools](https://www.w3schools.com/html/html5_geolocation.asp)
