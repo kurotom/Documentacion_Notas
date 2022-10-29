@@ -8,7 +8,7 @@ El software usado es:
 	* yt-dlp
 	* ffmpeg
 
-En un sistema operativo, Fedora 34.
+En un sistema operativo, Fedora.
 
 
 
@@ -39,7 +39,7 @@ Asumiendo que el video no tiene ningun audio y el codec del audio se traducirá 
 	$  yt-dlp --write-subs --sub-langs en --skip-download url_Video
 
 	
-  Este comando funciona solamente para subtitulos en la plataforma de la caja roja con triangulo blanco.
+	Escribe los subtitulos automáticamente sin descargar el video. Se puede obtener los subtitulos en varios formatos disponibles listados por `--list-subs` y utilizando `--sub-format [formato]`.
 	
 	$  yt-dlp --write-auto-subs --sub-langs en --skip-download url_Video
 
@@ -129,7 +129,7 @@ Acá es importante saber qué metadata contiene el video, para ello:
 Lo convierte, por ejemplo:
 
 
-* Sin titulo para el grupo de capítulos, genera titulo por defecto:
+* Sin título para el grupo de capítulos, genera titulo por defecto:
 ```	
 	;FFMETADATA1
 	title=Chapters
@@ -144,7 +144,7 @@ Lo convierte, por ejemplo:
 	title=Chapters
 ```
 
-* Con titulo para el grupo de capítulos.
+* Con título para el grupo de capítulos.
 ```
 	;FFMETADATA1
 	title=Introduccion Materia
