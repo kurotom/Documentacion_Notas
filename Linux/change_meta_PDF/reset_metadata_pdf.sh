@@ -16,13 +16,13 @@ else
 			filemarks="pdfmarks"
 
 			marcas="""
-				[ /Title (Tomas Valdivia Fuentes Curriculum)\n
-			    /Author (Tomas Valdivia Fuentes)\n
+				[ /Title (Title Document)\n
+			    /Author (Name author)\n
 			    /Subject ()\n
-			    /Keywords (cv)\n
-			    /ModDate (D:20221017170000)\n
-			    /CreationDate (D:20221017170000)\n
-			    /Creator (Tomas Valdivia Fuentes)\n
+			    /Keywords ()\n
+			    /ModDate (D:YYYYMMDDHHmmSS)\n
+			    /CreationDate (D:YYYYMMDDHHmmSS)\n
+			    /Creator (Name creator)\n
 			    /Producer ()\n
 			    /DOCINFO pdfmark\n
 			"""
