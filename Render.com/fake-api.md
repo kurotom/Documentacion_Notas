@@ -61,43 +61,42 @@ server.listen(port);
 
 3. Conectamos con Github y agregamos el repositorio que tiene los datos de la fake api.
 Se puede hacer de 2 formas:
+<ol>
+  <li>El repositorio en Github es público, copiarmos la URL del repositorio y lo agregamos en la sección <strong>Public Git repository</strong>.</li>
+  <br>
+  <li>Si el repositorio es privado, debemos conectar <i>render.com</i> a <i>Github</i>, para ello:</li><br>
+  <ol>
+    <li>Ir a <code>Account Settings</code>, en la sección <strong>Profile</strong>, conectamos con Github, damos permisos y aceptamos/conectamos.</li><br>
+    <li>Clic en <code>+ Connect account</code> en la sección Github.</li><br>
+    <li>Nos mostrará información y permisos que tendrá en los repositorios. Podemos dar acceso a todos los repositorios o tendrá acceso en algunos que seleccionaremos.</li><br>
+    <li>Seleccionar <code>Only select repositories</code> y elegimos el repositorio.</li><br>
+    <li>Clic en el botón, <code>Install</code>.</li><br>
+    <li>Ahora nos mostrará el repositorio a que <i>render</i> podrá acceder y <code>Connect</code>.</li><br>
+  </ol>
 
-  1. El repositorio en Github es público, copiarmos la URL del repositorio y lo agregamos en la sección **Public Git repository**.
+</ol>
 
-  2. Si el repositorio es privado, debemos conectar *render.com* a *Github*, para ello:
-
-    1. Ir a `Account Settings`, en la sección **Profile**, conectamos con Github, damos permisos y aceptamos/conectamos.
-
-    2. Clic en `+ Connect account` en la sección Github.
-
-    3. Nos mostrará información y permisos que tendrá en los repositorios. Podemos dar acceso a todos los repositorios o tendrá acceso en algunos que seleccionaremos.
-
-    4. Seleccionar `Only select repositories` y elegimos el repositorio.
-
-    5. Clic en el botón, `Install`.
-
-    6. Ahora nos mostrará el repositorio a que `render` podrá acceder y le damos a `Connect`.
 
 4. Completar los parámetros de despliegue que utilizará la aplicación.
-* Name: nombre del servicio
+  * Name: nombre del servicio
 
-* Region: seleccionar región más próxima o menos latencia.
+  * Region: seleccionar región más próxima o menos latencia.
 
-* Branch: la rama que se utilizará
+  * Branch: la rama que se utilizará
 
-* Root Directory
+  * Root Directory
 
-* Environment: selecionar el lenguaje que se utilizará, en este caso, `Node`.
+  * Environment: selecionar el lenguaje que se utilizará, en este caso, `Node`.
 
-* Build Command, agregar `npm install`.
+  * Build Command, agregar `npm install`.
 
-* Start Command, agregar `npm start`.
+  * Start Command, agregar `npm start`.
 
-* Seleccionamos el tipo de plan **Free**.
+  * Seleccionamos el tipo de plan **Free**.
 
-* Opcional - sección `Advanced`, si la aplicación utiliza variables de entorno, ficheros `.env` o cualquier otro fichero con información sensible como claves, url de base de datos, etc., se debe agregar. Damos clic en `Add Environment Variable` o agregamos el fichero en `Add Secret File`.
+  * Opcional - sección `Advanced`, si la aplicación utiliza variables de entorno, ficheros `.env` o cualquier otro fichero con información sensible como claves, url de base de datos, etc., se debe agregar. Damos clic en `Add Environment Variable` o agregamos el fichero en `Add Secret File`.
 
-* Auto-Deploy, *render* realizará un nuevo despliegue por cada `git push` nuevo que se haga, o lo hacemos manualmente.
+  * Auto-Deploy, *render* realizará un nuevo despliegue por cada `git push` nuevo que se haga, o lo hacemos manualmente.
 
 5. Clic en `Create Web Service` y esperar a que se complete el proceso.
 
