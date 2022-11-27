@@ -15,7 +15,9 @@ En un sistema operativo, Fedora.
 
 # Unir audio y video convirtiendo el codec.
 
-	$  ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac output.mp4
+```
+$  ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac output.mp4
+```
 
 Asumiendo que el video no tiene ningun audio y el codec del audio se traducirá a otro codec.
 
@@ -23,33 +25,48 @@ Asumiendo que el video no tiene ningun audio y el codec del audio se traducirá 
 
 # Unir audio y video sin convertir el codec.
 
-	$  ffmpeg -i video.mp4 -i audio.wav -c copy output.mp4
-
+```
+$  ffmpeg -i video.mp4 -i audio.wav -c copy output.mp4
+```
 
 
 [superuser-solucion](https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg)
 
 
+# Convertir audio multicanal a stéreo
+
+```
+$  ffmpeg -hide_banner -i video.mp4 -vcodec copy -acodec aac -strict -2 -ab 320K -ac 2 output.mp4
+```
+
+En el caso de 5.1, el .1 indica el subwoofer y en este caso se descarta.
+
+
+---
 
 # La maravillosa herramienta, yt-dlp 
 
 
 # Descargar los subtitulos.
 
-	$  yt-dlp --write-subs --sub-langs en --skip-download url_Video
-
+```
+$  yt-dlp --write-subs --sub-langs en --skip-download url_Video
+```
 	
-	Escribe los subtitulos automáticamente sin descargar el video. Se puede obtener los subtitulos en varios formatos disponibles listados por `--list-subs` y utilizando `--sub-format [formato]`.
-	
-	$  yt-dlp --write-auto-subs --sub-langs en --skip-download url_Video
+Escribe los subtitulos automáticamente sin descargar el video. Se puede obtener los subtitulos en varios formatos disponibles listados por `--list-subs` y utilizando `--sub-format [formato]`.
 
+```
+$  yt-dlp --write-auto-subs --sub-langs en --skip-download url_Video
+```
 
+---
 
 
 # Convertir los subtitulos con formato vtt a srt
 
-	$  ffmpeg -i subtitle.en.vtt subtitle.srt
-
+```
+$  ffmpeg -i subtitle.en.vtt subtitle.srt
+```
 
 Este es opcional porque ffmpeg permite los subtitulos vtt.
 
@@ -57,7 +74,9 @@ Este es opcional porque ffmpeg permite los subtitulos vtt.
 
 # Insertar subtitulos en el video.
 
-	$  ffmpeg -hide_banner -i video.mp4 -i subtitulo.vtt -c copy -c:s mov_text -metadata:s:s:0 language=eng out.mp4
+```
+$  ffmpeg -hide_banner -i video.mp4 -i subtitulo.vtt -c copy -c:s mov_text -metadata:s:s:0 language=eng out.mp4
+```
 
 
 -c:v o -codec copy<br>
@@ -86,16 +105,18 @@ language=en<br>
 
 Acá es importante saber qué metadata contiene el video, para ello:
 
-	$  ffprobe -hide_banner -i video.mp4
+```
+$  ffprobe -hide_banner -i video.mp4
+```
 
 
-   Asi obtendremos informacion del fichero y sabremos que mantener.
+Asi obtendremos informacion del fichero y sabremos que mantener.
 
+En este ejemplo de comando, se preservará la metadata de video 1, audio 1, subtitulos 1, se agregará los capitulos del fichero de entrada y se copiarán los codecs para el video final.
 
-   En este ejemplo de comando, se preservará la metadata de video 1, audio 1, subtitulos 1, se agregará los capitulos del fichero de entrada y se copiarán los codecs para el video final.
-    
-	$  ffmpeg -i video.mp4 -f ffmetadata -i metadataFile.txt -map 0:v -map 0:a -map 0:s -map_metadata 1 -map_chapters 1 -c copy outVideo.mp4
-
+```    
+$  ffmpeg -i video.mp4 -f ffmetadata -i metadataFile.txt -map 0:v -map 0:a -map 0:s -map_metadata 1 -map_chapters 1 -c copy outVideo.mp4
+```
 
 -map 0:v	- mantiene metadata de video<br>
 -map 0:a	- mantiene metadata de audio<br>
