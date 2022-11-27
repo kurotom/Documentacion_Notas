@@ -81,5 +81,8 @@ Podemos hacerlo de 2 formas:
 5. Clic en `Create Web Service` y esperar a que se complete el proceso.
 6. Nos mostrará un dashboard con la url, logs, settings, entre otras, algunas funciones más avanzadas se necesita pagar, pero la versión **Free** es suficiente para crear aplicaciones para practicar y aprender.
 
+---
 
+En Github podemos editar, agregar o revocar los permisos cuando queramos, ir a `Settings` y en la sección `Applications`.
 
+---
