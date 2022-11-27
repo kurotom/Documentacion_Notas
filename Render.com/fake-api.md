@@ -59,12 +59,12 @@ Podemos hacerlo de 2 formas:
 	a) El repositorio en Github es público, copiarmos la URL del repositorio y lo agregamos en la sección **Public Git repository**.
 
 	b) Si el repositorio es privado, debemos conectar *render.com* a *Github*, para ello:
-		b.1) Ir a `Account Settings`, en la sección **Profile**, conectamos con Github, damos permisos y aceptamos/conectamos.
-		b.2) Clic en `+ Connect account` en la sección Github.
-		b.3) Nos mostrará información y permisos que tendrá en los repositorios. Podemos dar acceso a todos los repositorios o tendrá acceso en algunos que seleccionaremos.
-		b.4) Seleccionar `Only select repositories` y elegimos el repositorio.
-		b.5) Clic en el botón, `Install`.
-		b.6) Ahora nos mostrará el repositorio a que `render` podrá acceder y le damos a `Connect`.
+	b.1) Ir a `Account Settings`, en la sección **Profile**, conectamos con Github, damos permisos y aceptamos/conectamos.
+	b.2) Clic en `+ Connect account` en la sección Github.
+	b.3) Nos mostrará información y permisos que tendrá en los repositorios. Podemos dar acceso a todos los repositorios o tendrá acceso en algunos que seleccionaremos.
+	b.4) Seleccionar `Only select repositories` y elegimos el repositorio.
+	b.5) Clic en el botón, `Install`.
+	b.6) Ahora nos mostrará el repositorio a que `render` podrá acceder y le damos a `Connect`.
 	
 4. Completar los parámetros de despliegue que utilizará la aplicación.
 * Name: nombre del servicio
