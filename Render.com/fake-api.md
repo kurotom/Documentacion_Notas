@@ -1,6 +1,6 @@
 # Fake api
 
-El desarrollo frontend necesita de una api para poder construir páginas web utilizando [json-server](https://github.com/typicode/json-server) podemos lograr esto, `json-server` permite tener en local un api rest.
+El desarrollo frontend necesita de una API para poder construir páginas web, utilizando [json-server](https://github.com/typicode/json-server) podemos lograr esto, `json-server` permite tener en local un api rest.
 
 Además podemos implementar uno en línea utilizando los servicio de [render.com](https://render.com/).
 
