@@ -64,7 +64,7 @@ Se puede hacer de 2 formas:
 
   1. El repositorio en Github es público, copiarmos la URL del repositorio y lo agregamos en la sección **Public Git repository**.
 
-	2. Si el repositorio es privado, debemos conectar *render.com* a *Github*, para ello:
+  2. Si el repositorio es privado, debemos conectar *render.com* a *Github*, para ello:
 
     1. Ir a `Account Settings`, en la sección **Profile**, conectamos con Github, damos permisos y aceptamos/conectamos.
 
