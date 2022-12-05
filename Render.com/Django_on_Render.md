@@ -16,43 +16,60 @@ Pasos:
 
 1. Instalar "poetry".
 
-`$ pip install poetry`
+```
+$ pip install poetry
+```
 
 
 2. Crear estructura proyecto.
 
-Nuevo projecto.
-`$ poetry new nombre_proyecto`
+```
+$ poetry new nombre_proyecto
+```
 
 Projecto existente, ir al directorio.
-`$ poetry init`
+```
+$ poetry init
+```
 
 
 3. Establecer versión Python.
 
-`$ poetry env use pythonX.X`
+```
+$ poetry env use pythonX.X
+```
 
 
 4. Agregar dependencias.
 
-`$ poetry add paqueteX`
+```
+$ poetry add paqueteX
+```
 
 
 5. Crear proyecto.
 
-`$ poetry run django-admin startproject nombre_proyecto .`
+```
+$ poetry run django-admin startproject nombre_proyecto .
+```
 
 
 6. Crear aplicaciones.
 
-`$ python manage.py nombre_app .`
-
+```
+$ python manage.py nombre_app .
+```
 
 7. Enviar el proyecto al repositorio.
 
 8. Conectar Render.com al repositorio Github desde la web.
 
-9. Agregar fichero `.build.sh`, ejecutable para todos, contiene comandos bash como "python manage.py collectstatic --noinput", migrate, makemigrate, etc.
+9. Agregar fichero `.build.sh`, ejecutable para todos, contiene comandos bash:
+```
+python manage.py migrate
+python manage.py makemigrate
+python manage.py collectstatic --noinput
+```
 
 10. Configurar parámetros del servicio web, agregar en la sección comandos './build.sh', 'gunicorn aplicacion.wsgi'.
 
@@ -98,7 +115,12 @@ services:
 
 3. Seleccionar entorno Python.
 
-4. Agregar fichero `.build.sh`, ejecutable para todos, contiene comandos bash como "python manage.py collectstatic --noinput", migrate, makemigrate, etc.
+4. Agregar fichero `.build.sh`, ejecutable para todos, contiene comandos bash:
+```
+python manage.py migrate
+python manage.py makemigrate
+python manage.py collectstatic --noinput
+```
 
 5. Comando inicio del servicio: `gunicorn mysite.wsgi`.
 

@@ -10,7 +10,7 @@ Instalar *poetry*.
 $ pip install poetry
 ```
 
-Ubicación entornos virtuales *`/home/[user_name]/.cache/pypoetry/virtualenvs`*.
+Ubicación entornos virtuales *`/home/[user_name]/.cache/pypoetry/virtualenvs/`*.
 
 
 Actualizar poetry.
