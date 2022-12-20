@@ -194,6 +194,10 @@ SELECT columna_nombre FROM nombre_tabla WHERE "condición" AND "condición";
 SELECT columna_nombre FROM nombre_tabla WHERE "condición" OR "condición";
 ```
 
+Operador de Comparación  :  =, >, <, >=, <=
+
+Operador Distinto: <>
+
 #### Ejemplo
 
 ```sql
@@ -660,6 +664,8 @@ Altera o modifica una tabla, agregando, eliminando, cambiando nombre de columna 
 ```sql
 ALTER TABLE nombre_tabla ADD columna_X varchar(50);
 
+ALTER TABLE nombre_tabla ADD PRIMARY KEY (columna);
+
 ALTER TABLE nombre_tabla DROP columna_X;
 
 ALTER TABLE nombre_tabla CHANGE columna_X columna_Y varchar(50);
@@ -896,6 +902,8 @@ WHERE "Condición");
 ```
 
 Operador de Comparación  :  =, >, <, >=, <=
+
+Operador Distinto: <>
 
 Fuera de paréntesis son consultas externas, dentro del paréntesis son consultas internas.
 
