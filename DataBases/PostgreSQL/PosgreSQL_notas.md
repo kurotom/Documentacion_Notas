@@ -277,6 +277,20 @@ Para declarar una zona horaria `SET timezone = 'time_zone'`.
 ## Tablas
 
 
+### Crear PRIMARY KEY AUTOINCREMENT
+
+Se debe utilizar `SERIAL` para la llave auto incremental y declarar `PRIMARY KEY`.
+
+```
+CREATE TABLE datos (
+  id SERIAL PRIMARY KEY,
+  nombre VARCHAR(255),
+  descripcion VARCHAR(255),
+  cantidad integer NOT NULL
+);
+
+```
+
 
 ### 'SEQUENCE' - 'SERIAL' - id autoincremental
 > 8.1.4. Serial Types - page 147]
@@ -403,4 +417,14 @@ CREATE TABLE product (
 ```
 
 
-### 
+## Administración PostgreSQL
+
+
+### Listar conexiones en base de datos
+
+```
+SELECT * from pg_stat_activity ;
+```
+
+
+

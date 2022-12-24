@@ -745,7 +745,7 @@ Actualiza valor de un item dentro columna en una tabla.
 #### Sintáxis
 
 ```sql
-UPDATE "nombre_tabla" SET "columna_nombre" = "nuevo Valor" WHERE "condición";
+UPDATE "nombre_tabla" SET "columna_nombre1" = "nuevo Valor1", "columna_nombre2" = "nuevo Valor2" WHERE "condición";
 ```
 
 #### Ejemplo
