@@ -96,12 +96,16 @@
 
 Usado para realizar consultas a tablas.
 
+Se puede unir tablas mediante uso de *WHERE*.
+
 #### Sintáxis
 
 ```sql
 SELECT * FROM nombre_tabla;
 
 SELECT name, age, skills, city FROM date_personal;
+
+SELECT datos.nombre, categorias.nombre FROM datos, categorias WHERE datos.categoria_id = categorias.id;
 ```
 
 <br>
