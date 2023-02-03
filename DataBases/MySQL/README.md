@@ -3,7 +3,7 @@
 ## Instalación en Fedora
 
 ```shell
-sudo dnf install python3-devel mysql-devel community-mysql community-mysql-server
+sudo dnf install community-mysql-devel community-mysql community-mysql-server
 ```
 
 ## Configurando servidor
@@ -31,14 +31,12 @@ mysql -h localhost -P 3306 -u root -p
 ## Crear usuario
 
 ```sql
-
 SELECT VALIDATE_PASSWORD_STRENGTH('contraseña_segura');
 
 CREATE USER 'nombre_usuario'@'%' IDENTIFIED BY 'contraseña_segura';
-
 ```
 
-## Crear tabla e ingresar VALIDATE_PASSWORD_STRENGTH
+## Crear tabla e ingresar datos
 
 ```sql
 CREATE TABLE product (
