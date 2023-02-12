@@ -551,7 +551,7 @@ clase.control
 `setter`, es útil, por ejemplo, para realizar comprobaciones antes de establecer el nuevo valor del atributo oculto, una forma de control que asegura el correcto funcionamiento del objeto, esto no se puede hacer en un atributo normal.
 
 
-Otro ejemplo, de encapsulamiento, usando '__' para que se interpreten como "privados":
+Otro ejemplo, de encapsulamiento, usando doble guión bajo (`__`) para que se interpreten como "privados":
 ```
 class Clase:
     atributo_clase = "Hola"   # Accesible desde el exterior
@@ -585,6 +585,7 @@ Podremos ver un listado de métodos normales y atributos de clase pero no podemo
 ```
 print(dir(Clase)
 ```
+
 ---
 
 
