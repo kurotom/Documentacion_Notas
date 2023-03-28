@@ -11,37 +11,33 @@ Recrear la base de datos en el mismo estado cuando se creó el respaldo.
 
 ## Backup
 
-```bash
-  pg_dump dbname > dumpfile
-```  
+```
+pg_dump dbname > dumpfile
+```
 
-Escribe el resultado a una salida estandar, se puede crear un backup desde un equipo remoto que tenga acceso a la base de datos. No opera con permisos especiales.
+Escribe el resultado a una salida estándar, se puede crear un backup desde un equipo remoto que tenga acceso a la base de datos. No opera con permisos especiales.
 
 Opciones **-h** para especificar equipo, **-p** para especificar el puerto, **-U** especifica usuario, por defecto es localhost.
 
 
 ## Restaurando la copia de seguridad
 
+Para restaurar usando *psql*:
+
 ```bash
-  pg_dump dbname < dumpfile
+psql -f ficheroDumpDB DataBaseName -h IP_HOST_DB -U usuarioDB  -W
 ```
 
 **dbname** debe existir, *pg_dump* no crea una base de datos.
 
 
-
-**pg_dumpall** - respalda cada base de datos en un cluster, también conserva los datos de todo el clúster, como las definiciones de roles y espacios de tabla.
+**pg_dumpall** - respalda cada base de datos en un clúster, también conserva los datos de todo el clúster, como las definiciones de roles y espacios de tabla.
 La base de datos debe existir para poder ser respaldado y restaurado y tener acceso a ella.
 
 ```bash
   pg_dumpall > dumpfile
 ```
 
-Para restaurar usando psql:
-
-```bash
-  psql -f dumpfile postgres
-```
 
 ## Manejando grandes bases de datos
 

@@ -43,7 +43,7 @@ if __name__ == '__main__':
                             s += stringEx
                     i += 1
                     ff = f';FFMETADATA{i}\ntitle={titleChapter}\n\n'
-                    with open("metadataFile.txt", "a") as file:
+                    with open("metadataFile.txt", "w") as file:
                             file.write(ff + s + f'[STREAM]\ntitle={titleChapter}\n\n\n')
             else:
                 if argv[2:] != []:
@@ -72,7 +72,7 @@ if __name__ == '__main__':
                             s += stringEx
 
                 ff = f';FFMETADATA{nFFmetadata}\ntitle={titleFFmetaData}\n\n'
-                with open("metadataFile.txt", "a") as file:
+                with open("metadataFile.txt", "w") as file:
                     file.write(ff + s + f'[STREAM]\ntitle={titleFFmetaData}\n\n\n')
 
         elif "help" in argv[1].lower():

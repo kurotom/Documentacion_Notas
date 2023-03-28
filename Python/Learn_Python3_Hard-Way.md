@@ -7,7 +7,7 @@ Ir a la página oficial de Python, descargar el paquete Python o instalar desde 
 En Fedora:
 
 ```bash
-$ sudo dnf install python3 atom vim
+$ sudo dnf install python3 vim
 ```
 
 

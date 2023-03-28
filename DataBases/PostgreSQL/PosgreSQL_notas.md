@@ -37,6 +37,8 @@ Ficheros principales de configuración de servidor postgresql.
 ```
 
 
+### Generar postgresql.conf y pg_hba.conf
+
 Si se genera un error se debe a que no existen los ficheros de configuración `postgresql.conf` y `pg_hba.conf`, para generarlos:
 
 ```bash
@@ -44,8 +46,9 @@ Si se genera un error se debe a que no existen los ficheros de configuración `p
 ```
 
 Usar el comando para revisar el error:
-s
-` # journalctl -xn`
+```
+# journalctl -xn
+```
 
 
 ### Configurar `firewall-cmd`.
@@ -180,7 +183,7 @@ $ dropdb db_name
 `createuser` defina cuenta de usuario PostgreSQL.
 
 ```bash
-$ createuser [opciones] username
+$ create user [opciones] username
 ```
 Opciones:
 d|--createdb : el nuevo usuario podrá crear base de datos.
@@ -289,6 +292,12 @@ CREATE TABLE datos (
   cantidad integer NOT NULL
 );
 
+```
+
+### Reiniciar Serial
+
+```
+ALTER SEQUENCE <tablename>_<id>_seq RESTART WITH 1
 ```
 
 
@@ -417,14 +426,47 @@ CREATE TABLE product (
 ```
 
 
-## Administración PostgreSQL
+# Administración PostgreSQL
 
 
-### Listar conexiones en base de datos
+## Conectarse a DB
+
+Pedirá contraseña.
+
+```
+psql -d DB_NAME -h IP_DB -U USER_DB -W
+```
+
+
+
+## Listar conexiones en base de datos
 
 ```
 SELECT * from pg_stat_activity ;
 ```
+
+## Listar base de datos
+
+```
+\db;
+```
+
+
+## Listar tablas
+
+```
+\dt;
+```
+
+## Listar base de datos, usuarios
+
+```
+\du;
+```
+
+
+
+
 
 
 

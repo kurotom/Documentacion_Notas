@@ -1,4 +1,4 @@
-# Mover ficheros con guón en nombre
+# Mover ficheros con guión en nombre
 
 ```bash
 $ mv ./*.png img/

@@ -125,6 +125,7 @@ python manage.py collectstatic --noinput
 5. Comando inicio del servicio: `gunicorn mysite.wsgi`.
 
 6. Agregar variables de entorno en Render.com.
+  * Para usar una versión específica de Python se debe agregar en variables de entorno: **PYTHON_VERSION**, **NUMERO_VERSION**. 
 
 7. Desplegar y esperar que termine.
 

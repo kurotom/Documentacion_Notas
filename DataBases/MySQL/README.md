@@ -1,32 +1,3 @@
-# MySQL
-
-## Instalación en Fedora
-
-```shell
-sudo dnf install community-mysql-devel community-mysql community-mysql-server
-```
-
-## Configurando servidor
-
-> Improve MySQL installation security.  manual
-
-```shell
-mysql_secure_installation
-```
-
-
-## Iniciar y habilitar servicio mysqld
-
-```shell
-sudo systemctl enable mysqld.service
-sudo systemctl start mysqld.service
-```
-
-## Ingresar a MySQL
-
-```sql
-mysql -h localhost -P 3306 -u root -p
-```
 
 ## Crear usuario
 
@@ -35,6 +6,15 @@ SELECT VALIDATE_PASSWORD_STRENGTH('contraseña_segura');
 
 CREATE USER 'nombre_usuario'@'%' IDENTIFIED BY 'contraseña_segura';
 ```
+
+
+## Restablecer contraseña
+
+```
+ALTER USER usuarioNombre WITH PASSWORD 'nuevaPassword';
+```
+
+
 
 ## Crear tabla e ingresar datos
 
@@ -81,6 +61,15 @@ SHOW GRANTS FOR 'nombre_usuario';
 set global max_user_connections = 30;
 ALTER USER 'nombre_usuario'@'%' WITH MAX_CONNECTIONS_PER_HOUR 20;
 ```
+
+
+
+
+
+
+
+
+
 
 
 # Ejercicios MySQL

@@ -10,7 +10,7 @@ Instalar *poetry*.
 $ pip install poetry
 ```
 
-Ubicación entornos virtuales *`/home/[user_name]/.cache/pypoetry/virtualenvs/`*.
+Ubicación entornos virtuales **`/home/[USERNAME]/.cache/pypoetry/virtualenvs/`**.
 
 
 Actualizar poetry.
@@ -23,27 +23,27 @@ Generar requirements.txt.
 $ poetry export --without-hashes --format=requirements.txt --output requirements.txt
 ```
 
-### Uso Básico
+# Uso Básico
 
-Crear un nuevo proyecto
+# Crear un nuevo proyecto
 ```
 $ poetry new [proyecto_name]
 ```
 
-Usar poetry en un proyecto existente.
+# Usar poetry en un proyecto existente.
 ```
 $ cd [projecto_existente]
 $ poetry init
 ```
 
 
-Instalar dependencias.
+# Instalar dependencias.
 ```
 $ poetry add "paquete^version.number"
 ```
 
 
-Utilizar shell poetry y salir entorno virtual.
+# Utilizar shell poetry y salir entorno virtual.
 ```
 $ poetry shell
 
@@ -51,7 +51,7 @@ $ deactive
 ```
 
 
-Instalar dependencias, utilizando fichero *poetry.lock*.
+# Instalar dependencias, utilizando fichero *poetry.lock*.
 ```
 $ poetry install
 ```
@@ -181,7 +181,7 @@ Opciones:
 Permite tener control explícito sobre el entorno, usando el comando `env use` podemos especificar que versión Python usar.
 
 ```
-$ poetry env use python3.7
+$ poetry env use PYTHON.VERSION
 ```
 
 Si da error, se tiene que editar fichero *pyproject.toml*.

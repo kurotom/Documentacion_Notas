@@ -2,6 +2,8 @@
 
 Repositorio de documentación de diferentes temas de interés.
 
+Si te sirvió algo, una :star: a este repositorio ayuda a continuar.
+
 
 # Notas y experiencias.
 
