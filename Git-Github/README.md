@@ -2,6 +2,8 @@
 
 Información de Git.
 
+Información al grano. Si sirvió de algo, deja tu :star2:.
+
 ## Contenido
 
 * [Agregar repositorio remoto](add_remote.md)
