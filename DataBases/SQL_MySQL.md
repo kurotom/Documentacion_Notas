@@ -2680,14 +2680,18 @@ SELECT LAST_INSERT_ID();
 Se pueden obtener todas las relaciones creadas mediante la consulta a la tabla y  utilizando [WHERE](#where) para filtrar los datos:
 **`information_schema.TABLE_CONSTRAINTS`**.
 
+#### Ver todas las relaciones existentes
 
-* Muestra todas las relaciones en la base de datos actual.
+Muestra todas las relaciones en la base de datos actual.
 
 ```sql
 SELECT * FROM information_schema.TABLE_CONSTRAINTS;
 ```
 
-* Filtra por nombre de tabla o columna las relaciones existentes.
+#### Comprobar relaciones existentes
+
+Filtra por nombre de tabla o columna las relaciones existentes.
+
 ```sql
 SELECT
     TABLE_NAME,
@@ -4591,8 +4595,17 @@ SELECT AVG(age) FROM personal;
 
 ```sql
 SELECT COUNT(name) FROM personal;
+```
 
+```sql
 SELECT COUNT(DISTINCT name) FROM personal;
+```
+
+```sql
+SELECT boarding_pass.passenger_id, COUNT(boarding_pass.passenger_id)
+FROM boarding_pass
+GROUP BY boarding_pass.passenger_id
+ORDER BY COUNT(boarding_pass.passenger_id) DESC;
 ```
 
 <br>

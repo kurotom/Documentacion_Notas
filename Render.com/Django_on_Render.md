@@ -6,7 +6,7 @@ En el proyecto se debe utilizar con [Poetry](https://python-poetry.org/) para ad
 
 Se necesita modificar el código base del proyecto para poder desplegar en [render.com](https://render.com).
 
-Render tiene compatibilidad con Python 3.7.
+Render tiene compatibilidad con Python 3.7+.
 
 
 * [Poetry](poetry.md)

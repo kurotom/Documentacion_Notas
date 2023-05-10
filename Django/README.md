@@ -1,3 +1,5 @@
-# Django - Heroku
+# Django
 
-Repositorio de temas sobre el framework Django y la plataforma Heroku, experiencias y documentación en español.
+Repositorio de temas sobre el framework Django, DRF
+
+Experiencias y documentación en español.
