@@ -1,5 +1,7 @@
 # MySQL existentes
 
+> [Databases legacy - doc](https://docs.djangoproject.com/en/4.0/howto/legacy-databases/)
+
 Django soporta veriones 5.7 o mayores de MySQL.
 
 Django **inspectdb** usa la base de datos **information_schema**, la cual contiene información de todos los esquemas de la base de datos.
@@ -9,10 +11,10 @@ Django **inspectdb** usa la base de datos **information_schema**, la cual contie
 
 ## Usando una base de datos.
 
-1) Instalar paquetes necesarios para usar mysql.
+1. Instalar paquetes necesarios para usar mysql, *[mysqlclient](https://pypi.org/project/mysqlclient/)*.
 
 ```shell
-    pip install pymysql
+pip install mysqlclient
 ```
 
 2) Para poder conectar una aplicación Django se debe configurar en *settings.py*, incorporar el paquete instalado a la configuración.
@@ -33,14 +35,12 @@ DATABASES = {
 }
 
 [...]
-
-pymysql.install_as_MySQLdb()
 ```
 
-2) Luego ejecutar el comando para generar el nuevo fichero *models.py*.
+3. Luego ejecutar el comando para generar el nuevo fichero *models.py*.
 
 ```shell
-    python manage.py inspectdb > models.py
+python manage.py inspectdb > models.py
 ```
 
 Por defecto, *inspectdb* crea modelos sin administrar, *managed = False*, en **Meta** de las clases de models.py.
@@ -59,12 +59,9 @@ class Category(models.Model):
 
 [inspectdb - documentación](https://docs.djangoproject.com/en/4.0/ref/django-admin/#django-admin-inspectdb)
 
-3) Luego instalar tablas core Django, ejecutando el comando *migrate*, siempre y cuando el usuario de la base de datos tenga permisos necesarios para crear nuevas tablas o modificar, de lo contrario dará error.
+3) Luego crear tablas core Django, ejecutando el comando *migrate*, siempre y cuando el usuario de la base de datos tenga permisos necesarios para crear nuevas tablas o modificar, de lo contrario dará error.
 
 ```shell
-    python manage.py migrate
+python manage.py migrate
 ```
 
-[databases_legacy - documentación](https://docs.djangoproject.com/en/4.0/howto/legacy-databases/)
-
-[MySQL-notes - Django](https://docs.djangoproject.com/en/4.0/ref/databases/#mysql-notes)

@@ -1,17 +1,22 @@
 # Raw queries
 
+> [Queries - docs](https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet.raw)
+> [Raw Queries - docs](https://docs.djangoproject.com/en/4.0/topics/db/sql/)
+
 Realizar consultas usando leguaje SQL directamente estas retornan instancias de modelo.
 
+Las consultas SQL en Django están protegidas contra inyección SQL, pero aún así se deben tomar medidas para mitigar este tipo de vulnerabilidad.
+
 ```python
- Manager.raw(raw_query, params=(), translations=None)
+Manager.raw(raw_query, params=(), translations=None)
 ```
 
 Toma una consulta raw SQL y retorna una instancia *django.db.models.query.RawQuerySet*, esta puede ser iterada como una consulta *QuerySet* normal.
 
-Ejemplo:
+## Ejemplo
 
+* Modelo
 
-Modelo
 ```python
 class Person(models.Model):
     first_name = models.CharField(...)
@@ -19,7 +24,8 @@ class Person(models.Model):
     birth_date = models.DateField(...)
 ```
 
-Raw SQL
+* Raw SQL
+
 ```python
 for p in Person.objects.raw('SELECT * FROM myapp_person'):
   print(p)
@@ -42,7 +48,3 @@ Person.objects.raw('''SELECT first AS first_name,
   FROM some_other_table''')
 ```
 
-
-
-[Queries - Django docs](https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet.raw)
-[Raw Queries - Django docs](https://docs.djangoproject.com/en/4.0/topics/db/sql/)

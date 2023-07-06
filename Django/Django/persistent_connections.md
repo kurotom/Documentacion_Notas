@@ -1,14 +1,15 @@
 # Conexiones persistentes
 
-Tiempo de vida de una conexión a base de datos, como un número entero de segundos. Usar **0** para cerrar la conexión al final de cada petición, comportamiento por defecto, y **None** para conexiones persistentes ilimitadas.
+> [CONN_MAX_AGE - doc](https://docs.djangoproject.com/en/4.0/ref/settings/#conn-max-age)
 
-[CONN_MAX_AGE - documentación](https://docs.djangoproject.com/en/4.0/ref/settings/#conn-max-age)
+Tiempo de vida de una conexión a base de datos, como un número entero de segundos.
 
+Usar **0** para cerrar la conexión al final de cada petición, comportamiento por defecto, y **None** para conexiones persistentes ilimitadas.
 
+## Ejemplo
 
-## Codigo ejemplo
+* *settings.py*
 
-*settings.py*
 ```python
 DATABASES = {
     'default': {

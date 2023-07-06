@@ -9,9 +9,6 @@
 [Documentacion django.conf.urls](https://docs.djangoproject.com/en/4.0/ref/urls/#django.conf.urls.handler404)
 
 
-
-
-
 ## urls.py
 
 Fichero `uls.py` principal del proyecto, no de las aplicaciones dentro de este.
@@ -22,6 +19,7 @@ from django.urls import path, include, re_path
 
 
 from django.conf.urls import handler404, handler500
+
 handler404 = 'app.views.error_404_view'
 handler500 = 'app.views.error_500_view'
 
@@ -32,7 +30,6 @@ urlpatterns = [
 ]
 ```
 
-
 ## views.py
 
 Fichero `views.py` de la aplicación dentro del proyecto.
@@ -40,12 +37,10 @@ Fichero `views.py` de la aplicación dentro del proyecto.
 ```python
 from django.shortcuts import render
 
-[...]
 
 def error_404_view(request, exception):
     return render(request, 'app/404.html')
 
 def error_500_view(request):
     return render(request, 'app/500.html')
-
 ```
