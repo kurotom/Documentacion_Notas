@@ -42,19 +42,19 @@ Este es opcional porque ffmpeg permite los subtítulos *.vtt*.
 
 
 
-# Insertar subtítulos en el video.
+# Insertar subtítulos
 
 ```
 $  ffmpeg -hide_banner -i video.mp4 -i subtitulo.vtt -c copy -c:s mov_text -metadata:s:s:0 language=eng out.mp4
 ```
 
-* -c:v o -codec copy
+* `-c:v` o `-codec copy`
 Set the video codec. This is an alias for -codec
 
--c:s mov_text
+* `-c:s mov_text`
 Set the subtitle codec. This is an alias for `-codec:s`.
 
-* -metadata [key]
+* `-metadata [key]`
 Set a metadata key/value pair.
 ```bash
 -metadata s:s:0          # subtitlulo 1<br>
@@ -63,11 +63,27 @@ Set a metadata key/value pair.
 -metadata s:s:X          # subtitlulo X<br>
 ```
 
-* language=en
+* `language=eng`
 Set language, in this case for language for subtitle.
 	
 
 [Source](https://bernd.dev/2020/04/adding-subtitles/)
+
+
+# Insertar subtítulos ASS
+
+Conservando los codec de video, audio, incoporando subtítulos en formato ASS.
+
+```
+$ ffmpeg -hide_banner -i in_video.mp4 -i subs.ass -c copy -scodec mov_text -map 0 -map 1 out_video.mp4
+```
+
+Estableciendo la metadata "lenguage" al video.
+
+```
+ffmpeg -hide_banner -i in_video.mp4 -i subtitle.ass -c copy -scodec mov_text -metadata:s:s:0 -language=esp out_video.mp4
+```
+
 
 
 

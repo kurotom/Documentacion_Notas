@@ -318,7 +318,7 @@ Licencia del proyecto
 
 ```
 license = "MIT"
-``` 
+```
 
 ## authors
 
@@ -473,7 +473,7 @@ mkdocs = "*"
 
 ## scripts
 
-Describe los scripts y ejecutables que serán instalados cuando se instale el paquete.
+Describe los scripts y ejecutables que serán instalados cuando se instale el paquete. Además, permite apuntar a un método para ejecutar un fichero Python como comando en terminal.
 
 ```
 [tool.poetry.scripts]
