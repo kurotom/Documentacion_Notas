@@ -1,3 +1,84 @@
+"""
+---
+
+# Script ffmetadata
+
+**`transformChapters.py`** es un script que transforma los capítulos.
+
+
+El formato de los capítulos deben ser:
+
+* Sin titulo para el grupo de capítulos.
+
+```
+00:00:00 - texto
+```
+
+```
+00:00:00 texto
+```
+
+* Con titulo para el grupo de capítulos.
+```
+Titulo capítulos
+00:00:00 - texto
+```
+
+```
+Titulo capítulos
+00:00:00 texto
+```
+
+
+
+## Ejemplo de conversión
+
+Un ejemplo del fichero final en cada caso de formato de subtítulos.
+
+1. Sin título para el grupo de capítulos, genera titulo por defecto:
+
+```	
+;FFMETADATA1
+title=Chapters
+	
+[CHAPTER]
+TIMEBASE=1/1000
+START=0000000
+END=1000000
+title=Chapter 10
+	
+[STREAM]
+title=Chapters
+```
+
+2. Con título para el grupo de capítulos.
+```
+;FFMETADATA1
+title=Introduccion Materia
+	
+[CHAPTER]
+TIMEBASE=1/1000
+START=0000000
+END=1000000
+title=Chapter 10
+	
+[STREAM]
+title=Introduccion Materia	
+```
+
+
+
+# End
+
+Con esta información se podrá unir fichero de video, audio, subtítulo, y capítulo.
+
+El tiempo que tarde en completar cada tarea dependerá de la potencia del procesador.
+
+
+
+
+"""
+
 import re
 from sys import argv
 
