@@ -13,7 +13,7 @@ $ pip install poetry
 
 ---
 
-Ubicación entornos virtuales **`/home/[USERNAME]/.cache/pypoetry/virtualenvs/`**.
+En Linux, ubicación entornos virtuales **`/home/[USERNAME]/.cache/pypoetry/virtualenvs/`**.
 
 ---
 
@@ -57,18 +57,25 @@ $ poetry add "paquete"
 ```
 
 
-# Entrar y salir entorno virtual.
+# Poetry Shell
 
-En el directorio del proyecto, usar.
+Permite ctivar entornos virutales en una subshell, en versiones **Poetry 2.0+** se debe instalar plugin [poetry-plugin-shell](https://github.com/python-poetry/poetry-plugin-shell).
+
+```bash
+$ poetry self add poetry-plugin-shell
+```
+
+## Uso
+
+Activar la shell virutal y salir.
 
 ```
 $ poetry shell
 
 $ exit
-
-# opcionalmente 
-$ deactive
 ```
+
+Opcionalmente se puede usar `deactive` o combinacion de teclas `Control + D`.
 
 
 # Instalar dependencias.
@@ -243,7 +250,7 @@ Se puede ejecutar comandos python dentro del entorno sin entrar en el.
 ```
 $ poetry run python name_script.py
 
-$ poetry run  pytest
+$ poetry run pytest
 ```
 
 <br>
