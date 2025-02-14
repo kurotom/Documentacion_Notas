@@ -35,3 +35,26 @@ Métodos POST, se necesitaban para autenticación.
 CORS siempre al lado del servidor.
 
 ## 
+
+Pulsar Editor
+
+Al crear fichero y agreagar líneas automáticamente.
+
+1. **Pulsar** y busca en la paleta de comandos (`Ctrl+Shift+P`):
+   - `Application: Open Your Init Script`
+
+2. Dentro del archivo `init.js`, agrega este código:
+
+   ```javascript
+    atom.workspace.observeTextEditors((editor) => {
+        const filePath = editor.getPath();
+        if (!filePath || !filePath.endsWith('.py')) return;
+    
+        const firstLine = editor.lineTextForBufferRow(0);
+        if (!firstLine.startsWith('# -*- coding: utf-8 -*-')) {
+            editor.setText(`# -*- coding: utf-8 -*-\n${editor.getText()}`);
+        }
+    });
+   ```
+
+3. Guarda el archivo y reinicia Pulsar.
