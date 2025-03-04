@@ -23,12 +23,6 @@ En Linux, ubicación entornos virtuales **`/home/[USERNAME]/.cache/pypoetry/virt
 $ poetry self update
 ```
 
-## Generar requirements.txt.
-
-```
-$ poetry export --without-hashes --format=requirements.txt --output requirements.txt
-```
-
 <br>
 
 # Uso Básico
@@ -56,6 +50,35 @@ $ poetry add "paquete^version.number"
 $ poetry add "paquete"
 ```
 
+---
+
+# Poetry Export
+
+> [poetry-plugin-export](https://github.com/python-poetry/poetry-plugin-export)
+
+Poetry 2.0+, necesita instalar un plugin para exportar ficheros "lock" en varios formatos.
+
+* **poetry self**
+```
+poetry self add poetry-plugin-export
+```
+
+* **pipx**
+
+```
+pipx inject poetry poetry-plugin-export
+```
+
+* **pip**
+```
+pip install poetry-plugin-export
+```
+
+## Uso
+
+```
+$ poetry export --without-hashes --format=requirements.txt --output requirements.txt
+```
 
 # Poetry Shell
 
@@ -77,6 +100,9 @@ $ exit
 
 Opcionalmente se puede usar `deactive` o combinacion de teclas `Control + D`.
 
+---
+
+<br>
 
 # Instalar dependencias.
 
