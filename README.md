@@ -38,6 +38,8 @@ CORS siempre al lado del servidor.
 
 ## Pulsar Editor
 
+> [init.js - doc](https://pulsar-edit.dev/docs/launch-manual/sections/core-hacking/sections/the-init-file.html)
+
 Al crear fichero y agreagar líneas automáticamente.
 
 1. **Pulsar** y busca en la paleta de comandos (`Ctrl+Shift+P`):
