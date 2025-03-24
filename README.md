@@ -34,9 +34,9 @@ Métodos POST, se necesitaban para autenticación.
 
 CORS siempre al lado del servidor.
 
-## 
+---
 
-Pulsar Editor
+## Pulsar Editor
 
 Al crear fichero y agreagar líneas automáticamente.
 
